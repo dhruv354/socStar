@@ -3,6 +3,7 @@ const port = 8000
 
 app = express()
 
+app.use('/', require('./routers'))
 
 app.listen(port, (err) => {
     if(err){
