@@ -4,7 +4,7 @@ const homeController = require('../controllers/homeController')
 console.log('router loaded')
 //home page
 router.get('/', homeController.home)
-
+router.get('/users', require('./users'))
 
 
 

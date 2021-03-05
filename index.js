@@ -4,6 +4,8 @@ const port = 8000
 app = express()
 
 app.use('/', require('./routers'))
+app.set('view engine', 'ejs')
+app.set('views', './views')
 
 app.listen(port, (err) => {
     if(err){
