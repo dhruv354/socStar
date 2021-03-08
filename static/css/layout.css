@@ -1,0 +1,13 @@
+body{
+    text-align: center
+}
+
+h1, header, footer{
+    font-size: 2rem;
+    margin: 40px;
+}
+
+h1{
+    font-size: 4rem;
+    font-weight: bolder;
+}
