@@ -2,7 +2,25 @@ const User = require('../models/user')
 
 
 module.exports.profile = (req, res) => {
-   return  res.render('user_profile', {})
+   if(req.cookies.user_id){
+       User.findById(req.cookies.user_id, (err, user) => {
+           //if user found
+           if(user){
+                return res.render('user_profile', {
+                    name: user.name,
+                    email: user.email
+                })
+           }
+           //if user is not found
+           else{
+                return res.redirect('/users/sign-in')
+           }
+       })
+       //if cookie for that user is not present
+   }
+   else{
+    res.redirect('/users/sign-in')
+}
 }
 
 module.exports.signIn = (req, res) => {
