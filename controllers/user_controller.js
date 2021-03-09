@@ -13,3 +13,7 @@ module.exports.signUp = (req, res) => {
 module.exports.create = (req, res) => {
     res.end('your profile is created')
 }
+
+module.exports.createSession = (req, res) => {
+    res.end('your session is created if you sign out you need to sign in')
+}
