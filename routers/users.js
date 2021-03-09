@@ -8,9 +8,9 @@ router.get('/sign-in', userController.signIn)
 //for signing up
 router.get('/sign-up', userController.signUp)
 //for creation of a user in database
-router.get('/create', userController.create)
+router.post('/create', userController.create);
 //for creating session while the time user is logged in
-router.get('/createSession', userController.createSession)
+router.post('/create-session', userController.createSession)
 
 
 module.exports = router

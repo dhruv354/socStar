@@ -2,13 +2,19 @@
 const express = require('express')
 const db = require('./config/mongoose')
 const expressLayouts = require('express-ejs-layouts')
+const cookieParser = require('cookie-parser')
 const port = 8000
 
 app = express()
+//express middleware to use express-ejs-layout
 app.use(expressLayouts)
-app.use(express.static('./static'))
+app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
+//express middleware to use cookir-parser
+app.use(cookieParser())
+app.use(express.static('./static'))
 //use express router for managing all routes
+app.use(express.urlencoded())
 app.use('/', require('./routers'))
 
 
