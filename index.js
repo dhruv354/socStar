@@ -10,7 +10,7 @@ app = express()
 app.use(expressLayouts)
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
-//express middleware to use cookir-parser
+//express middleware to use cookie-parser
 app.use(cookieParser())
 app.use(express.static('./static'))
 //use express router for managing all routes
