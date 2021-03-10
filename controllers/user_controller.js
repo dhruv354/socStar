@@ -1,6 +1,7 @@
 const User = require('../models/user')
 
 
+
 module.exports.profile = (req, res) => {
    if(req.cookies.user_id){
        User.findById(req.cookies.user_id, (err, user) => {
@@ -77,4 +78,11 @@ module.exports.createSession = (req, res) => {
 
 
     //if user does not exist
+}
+
+
+module.exports.signOut = (req, res) => {
+    res.clearCookie('user_id')
+    console.log('signing out the user');
+    res.redirect('/users/sign-in')
 }
