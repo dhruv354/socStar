@@ -19,8 +19,26 @@ passport.use(new LocalStrategy({
             console.log('Invalid username/password');
             return done(null, false)
         }
-
+        // return user
         return done(null, user);
-
     })
 }))
+
+
+//serialize the user to decide which key ot keys is to be used in the cookie
+passport.serializeUser(function(user, done){
+    return done(null, user.id)
+})
+
+passport.deserializeUser(function(id, done){
+    User.findById(id, function(err, user){
+        if(err){
+            console.log('error in finding the user ---> passport');
+            done(err)
+        }
+        return done(null, user)
+    })
+})
+
+
+module.exports = passport
