@@ -11,6 +11,8 @@ router.get('/sign-up', userController.signUp)
 router.post('/create', userController.create);
 //for creating session while the time user is logged in
 router.post('/create-session', userController.createSession)
+//for signing out
+router.post('/sign-out', userController.signOut)
 
 
 module.exports = router
